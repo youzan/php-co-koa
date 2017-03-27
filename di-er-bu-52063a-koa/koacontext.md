@@ -1,6 +1,6 @@
 ## Koa::Context
 
-Context 组件代理了Request与Response中的方法和属性,简化了使用方式与中间件接口, 这里用php的魔术方法来处理
+`Context`组件代理了`Request`与`Response`中的方法和属性，简化了使用方式与中间件接口，这里用php的魔术方法来处理：
 
 
 ```php

@@ -1,6 +1,6 @@
 ## Koa::Request
 
-Request 组件是对swoole_http_request 的简单封装
+`Request`组件是对`swoole_http_request`的简单封装：
 
 ```php
 <?php

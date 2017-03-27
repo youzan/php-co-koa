@@ -39,7 +39,7 @@ $router->get('/timeout', function(Context $ctx) {
 $router->get('/error/http_exception', function(Context $ctx) {
     // 抛出带status的错误
     $ctx->thrοw(500, "Internal Error");
-    throw new HttpException(500, "Internal Error"); // 相等
+    // 等价于 throw new HttpException(500, "Internal Error");
     yield;
 });
 
@@ -74,4 +74,4 @@ $app->listen(3000);
 
 ```
 
-以上我们完成了一个基于swoole的版本的php-koa.
+以上我们完成了一个基于swoole的版本的php-koa。

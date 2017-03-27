@@ -1,4 +1,4 @@
-接下来我们来看Koa的仅有四个组件, Application, Context, Request, Response, 依次给予实现:
+接下来我们来看Koa的仅有四个组件，`Application` `Context` `Request` `Response` 依次给予实现：
 
 [Koa-guide](https://github.com/guo-yu/Koa-guide)
 
@@ -14,7 +14,7 @@
 > configuration of the context, request and response objects.
 
 
-我们的App模块是对swoole_http_server的简单封装, 在onRequest回调中对中间件compose并执行:
+我们的`App`模块是对`swoole_http_server`的简单封装，在onRequest回调中对中间件compose并执行：
 
 ```php
 <?php
@@ -95,8 +95,8 @@ class Application
             sys_error($ex);
         }
 
-        // 非 Http异常, 统一500 status, 对外显示异常code
-        // Http 异常, 自定义status, 自定义是否暴露Msg
+        // 非 Http异常， 统一500 status，对外显示异常code
+        // Http 异常，自定义status，自定义是否暴露Msg
         $msg = $ex->getCode();
         if ($ex instanceof HttpException) {
             $status = $ex->status ?: 500;

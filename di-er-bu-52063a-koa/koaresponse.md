@@ -1,6 +1,6 @@
 ## Koa::Response
 
-Response 组件是对swoole_http_response 的简单封装
+`Response`组件是对`swoole_http_response`的简单封装：
 
 ```php
 <?php
