@@ -39,7 +39,7 @@ class All implements Async
                 return;
             }
 
-            // 任一回调发生异常, 终止任务
+            // 任一回调发生异常，终止任务
             if ($ex) {
                 $this->done = true;
                 $k = $this->continuation;
@@ -49,7 +49,7 @@ class All implements Async
 
             $this->results[$id] = $r;
             if (--$this->n === 0) {
-                // 所有回调完成, 终止任务
+                // 所有回调完成，终止任务
                 $this->done = true;
                 if ($this->continuation) {
                     $k = $this->continuation;
@@ -102,8 +102,6 @@ array(3) {
 ```
 
 
-我们这里实现了与Promise.all相同语义的接口, 
+我们这里实现了与Promise.all相同语义的接口，或者更复杂一些，我们也可以实现批量任务以chunk方式进行作业的接口，留待读者自己完成;
 
-或者更复杂一些, 我们也可以实现批量任务以chunk方式进行作业的接口, 留待读者自己完成;
-
-至此, 我们已经拥有了 `spawn` `callcc` `race` `all` `timeout`.
+至此， 我们已经拥有了 `spawn` `callcc` `race` `all` `timeout`.
