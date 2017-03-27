@@ -22,9 +22,9 @@ function chan($n = 0)
 ```
 
 
-第一个典型例子, PINGPONG
+第一个典型例子, PINGPONG。
 
-与golang的channel类似, 我们可以在两个semicoroutine之间做同步
+与golang的channel类似，我们可以在两个semicoroutine之间做同步：
 
 
 ```php
@@ -40,7 +40,7 @@ go(function() use($pingCh, $pongCh) {
         echo (yield $pingCh->recv());
         yield $pongCh->send("PONG\n");
 
-        // 递归调度器实现, 需要引入异步的方法退栈, 否则Stack Overflow...
+        // 递归调度器实现，需要引入异步的方法退栈，否则Stack Overflow...
         // 或者考虑将send或者recv以defer方式实现
         yield async_sleep(1);
     }
@@ -76,7 +76,7 @@ PING
 
 ```
 
-当然, 我们可以很轻易构建一个生产者-消费者模型
+当然，我们可以很轻易构建一个生产者-消费者模型：
 
 
 ```php
@@ -135,7 +135,7 @@ consumer2 recv from producer 2
 
 ```
 
-chan 自身是first-class, 所以可传递
+chan 自身是first-class, 所以可传递：
 
 
 ```php
@@ -171,7 +171,7 @@ HELLO
 */
 ```
 
-我们通过控制channel缓存大小 观察输出结果
+我们通过控制channel缓存大小 观察输出结果：
 
 ```php
 <?php
@@ -241,7 +241,7 @@ recv 4
 ```
 
 
-一个更具体的生产者消费者的例子:
+一个更具体的生产者消费者的例子：
 
 
 ```php
@@ -281,8 +281,4 @@ go(function() use($ch) {
 ```
 
 
-channel的发送与接受没有超时机制, golang可以select多个chan实现超时处理,
-
-我们可以做一个select设施, 或者在send于recv接受直接添加超时参数, 扩展接口功能,
-
-留待读者自行实现. 
+channel的发送与接受没有超时机制，Golang可以select多个chan实现超时处理，我们可以做一个select设施，或者在send于recv接受直接添加超时参数，扩展接口功能，留待读者自行实现。 
