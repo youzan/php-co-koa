@@ -94,4 +94,4 @@ spawn(function() {
 
 ```
 
-我们可以用相同的方式来封装swoole剩余的异步api(TcpClient,MysqlClient,RedisClient...), 大家可以举一反三(建议继承swoole原生类, 而不是直接实现Async);
+我们可以用相同的方式来封装swoole剩余的异步api(TcpClient，MysqlClient，RedisClient...)，大家可以举一反三(建议继承swoole原生类，而不是直接实现Async);
