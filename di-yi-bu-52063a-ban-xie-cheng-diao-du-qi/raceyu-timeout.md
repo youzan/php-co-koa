@@ -63,7 +63,7 @@ spawn(function() {
 
 ```
 
-但是, 我们可以有更优雅通用的方式来超时处理:
+但是，我们可以有更优雅通用的方式来超时处理:
 
 
 ```php
@@ -140,10 +140,7 @@ function race(array $tasks)
 ```
 
 
-我们构造了一个与Promise.race相同语义的接口, 
-
-而我们之前构造Async接口则可以看成简陋版的Promise.then + Promise.catch
-
+我们构造了一个与Promise.race相同语义的接口，而我们之前构造Async接口则可以看成简陋版的Promise.then + Promise.catch。
 
 ```php
 <?php
