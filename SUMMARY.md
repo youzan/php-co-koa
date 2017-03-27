@@ -17,7 +17,6 @@
   * [Syscall与Context](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/syscallyu-context.md)
   * [调度器: 里程碑](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/diao-du-56683a-li-cheng-bei.md)
   * [spawn](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/spawn.md)
-  * [其他有趣的组件](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/qi-ta-you-qu-de-zu-jian.md)
   * [callcc](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/callcc.md)
   * [race与timeout](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/raceyu-timeout.md)
   * [all与parallel](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/allyu-parallel.md)
