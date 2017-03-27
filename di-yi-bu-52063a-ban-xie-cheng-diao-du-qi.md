@@ -25,4 +25,4 @@ interface Async
 1. 对co库不了解的同学可以先参考[阮一峰 - co 函数库的含义和用法](http://www.ruanyifeng.com/blog/2015/05/co.html)
 2. co新版与旧版的区别在于对thunks的支持， 4.x只支持Promises.
 
-我们首先构建Koa的基础设施，渐进的实现一个约50+行代码的精练的半协程调度器:
+我们首先构建Koa的基础设施，渐进的实现一个约50+行代码的精练的半协程调度器。
