@@ -35,7 +35,7 @@ function callcc(callable $fn)
 > However, it is still possible to implement coroutines on top of a generator facility, with the aid of a top-level dispatcher routine (a trampoline, essentially) that passes control explicitly to child generators identified by tokens passed back from the generators
 
 
-我们引入的callcc实际上是人肉进行的thunky，来看例子:
+来看例子:
 
 
 ```php
