@@ -1,5 +1,6 @@
-## callcc
+## call/cc
 
+异步回调API是无法直接使用yield语法的，需要使用thunk或者promise进行转换，thunkfy就是将多参数函数替换成单参数函数且参数只接受回调(参见：[Thunk 函数的含义和用法](http://www.ruanyifeng.com/blog/2015/05/thunk.html))。上文中我们将回调API显式实现Async接口，显得有些麻烦，这里可以把 **“通过参数传递异步结果回调度器”** 这个模式抽象出来，实现一个穷人的call/cc。
 
 ```php
 <?php
@@ -27,16 +28,14 @@ function callcc(callable $fn)
 }
 ```
 
-我们创造的半协程中的callcc的功能有限, yield只能将控制权从Generator转移到起caller中:
-
-[Wiki - Coroutine](https://en.wikipedia.org/wiki/Coroutine)
+我们创造的半协程中的callcc的功能有限，yield只能将控制权从Generator转移到起caller中:[Wiki - Coroutine](https://en.wikipedia.org/wiki/Coroutine)
 
 > Generators, also known as semicoroutines, are also a generalisation of subroutines, but are more limited than coroutines. Specifically, while both of these can yield multiple times, suspending their execution and allowing re-entry at multiple entry points, they differ in that coroutines can control where execution continues after they yield, while generators cannot, instead transferring control back to the generator's caller. That is, since generators are primarily used to simplify the writing of iterators, the yield statement in a generator does not specify a coroutine to jump to, but rather passes a value back to a parent routine.
 
 > However, it is still possible to implement coroutines on top of a generator facility, with the aid of a top-level dispatcher routine (a trampoline, essentially) that passes control explicitly to child generators identified by tokens passed back from the generators
 
 
-我们引入的callcc实际上是人肉进行的thunky, 来看例子:
+我们引入的callcc实际上是人肉进行的thunky，来看例子:
 
 
 ```php
