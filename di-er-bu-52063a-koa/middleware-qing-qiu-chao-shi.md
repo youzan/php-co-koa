@@ -1,6 +1,6 @@
 ## Middleware: 请求超时
 
-请求超时控制也是不可或缺的中间件
+请求超时控制也是不可或缺的中间件：
 
 
 ```php
@@ -44,4 +44,4 @@ class RequestTimeout implements Middleware
 $app->υse(new RequestTimeout(2000));
 ```
 
-也可以结合FastRoute构造出一个按路由匹配请求超时的中间件, 留给读者自行实现;
+也可以结合FastRoute构造出一个按路由匹配请求超时的中间件，留给读者自行实现。

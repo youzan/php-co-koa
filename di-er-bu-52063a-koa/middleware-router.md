@@ -1,6 +1,6 @@
 ## Middleware: Router
 
-路由是httpServer必不可少的组件, 我们使用nikic的[FastRoute](https://github.com/nikic/FastRoute)来实现一个路由中间件
+路由是httpServer必不可少的组件，我们使用nikic的[FastRoute](https://github.com/nikic/FastRoute)来实现一个路由中间件：
 
 
 ```php
@@ -87,4 +87,4 @@ $app->υse($router->routes());
 
 ```
 
-我们已经拥有了一个支持`多方法` `正则` `参数匹配` `分组`功能的路由中间件;
+我们已经拥有了一个支持`多方法` `正则` `参数匹配` `分组`功能的路由中间件。

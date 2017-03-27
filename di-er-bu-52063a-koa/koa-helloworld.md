@@ -1,9 +1,6 @@
 ## Koa - HelloWorld
 
-以上便是全部了, 我们重点来看示例:
-
-
-我们只注册一个中间件, Hello Worler Server
+以上便是全部了，我们重点来看示例，我们只注册一个中间件, Hello Worler Server：
 
 ```php
 <?php
@@ -21,7 +18,7 @@ $app->listen(3000);
 
 ```
 
-我们在Hello中间件前面注册一个Reponse-Time中间件, 注意看, 我们的逻辑是连贯的;
+我们在Hello中间件前面注册一个Reponse-Time中间件，注意看，我们的逻辑是连贯的：
 
 ```php
 <?php

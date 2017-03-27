@@ -26,7 +26,6 @@
   * [channel演示](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/channelyan-shi.md)
   * [FutureTask与fork](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/futuretaskyu-fork.md)
 * [第二部分: Koa](di-er-bu-52063a-koa.md)
-  * [Koa 前言](di-er-bu-52063a-koa/koa-qian-yan.md)
   * [穿越地心之旅](di-er-bu-52063a-koa/chuan-yue-di-xin-zhi-lv.md)
   * [洋葱圈模型](di-er-bu-52063a-koa/yang-cong-quan-mo-xing.md)
   * [rightReduce与中间件compose](di-er-bu-52063a-koa/rightreduceyu-zhong-jian-jian-compose.md)

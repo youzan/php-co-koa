@@ -15,7 +15,7 @@ go(function() {
 
     $ch = chan();
 
-    // 开启一个新的协程, 异步执行耗时任务
+    // 开启一个新的协程，异步执行耗时任务
     spawn(function() use($ch) {
         yield delay(1000);
         yield $ch->send(42); // 通知+传送结果
@@ -25,13 +25,13 @@ go(function() {
     $r = (yield $ch->recv()); // 阻塞等待结果
     echo $r; // 42
 
-    // 我们这里两个耗时任务并发执行, 总耗时约1000ms
+    // 我们这里两个耗时任务并发执行，总耗时约1000ms
     echo "cost ", microtime(true) - $start, "\n";
 });
 
 ```
 
-事实上我们也很容易把Future模型移植过来
+事实上我们也很容易把Future模型移植过来：
 
 ```php
 <?php
@@ -53,10 +53,10 @@ final class FutureTask
         $asyncTask->begin(function($r, $ex = null)  {
             $this->state = self::DONE;
             if ($cc = $this->cc) {
-                // 有cc, 说明有call get方法挂起协程, 在此处唤醒
+                // 有cc，说明有call get方法挂起协程，在此处唤醒
                 $cc($r, $ex);
             } else {
-                // 无挂起, 暂存执行结果
+                // 无挂起，暂存执行结果
                 $this->result = $r;
                 $this->ex = $ex;
             }
@@ -67,11 +67,11 @@ final class FutureTask
     {
         return callcc(function($cc) use($timeout) {
             if ($this->state === self::DONE) {
-                // 获取结果时, 任务已经完成, 同步返回结果
-                // 这里也可以考虑用defer实现, 异步返回结果, 首先先释放php栈, 降低内存使用
+                // 获取结果时，任务已经完成，同步返回结果
+                // 这里也可以考虑用defer实现，异步返回结果，首先先释放php栈，降低内存使用
                 $cc($this->result, $this->ex);
             } else {
-                // 获取结果时未完成, 保存$cc, 挂起等待
+                // 获取结果时未完成，保存$cc，挂起等待
                 $this->cc = $cc;
             }
         });
@@ -88,7 +88,7 @@ function fork($task, ...$args)
 ```
 
 
-还是刚才那个例子, 我们改写为FutureTask版本:
+还是刚才那个例子, 我们改写为FutureTask版本：
 
 
 ```php
@@ -115,7 +115,7 @@ go(function() {
 ```
 
 
-再进一步, 我们扩充FutureTask的状态, 阻塞获取结果加入超时选项:
+再进一步，我们扩充FutureTask的状态，阻塞获取结果加入超时选项：
 
 
 ```php
@@ -134,7 +134,7 @@ final class FutureTask
     public $result;
     public $ex;
 
-    // 我们这里加入新参数, 用来链接futureTask与caller父任务
+    // 我们这里加入新参数，用来链接futureTask与caller父任务
     // 这样的好处比如可以共享父子任务上下文
     public function __construct(\Generator $gen, AsyncTask $parent = null)
     {
@@ -167,8 +167,8 @@ final class FutureTask
         });
     }
 
-    // 这里超时时间0为永远阻塞,
-    // 否则超时未获取到结果, 将向父任务传递超时异常
+    // 这里超时时间0为永远阻塞，
+    // 否则超时未获取到结果，将向父任务传递超时异常
     public function get($timeout = 0)
     {
         return callcc(function($cc) use($timeout) {
@@ -176,7 +176,7 @@ final class FutureTask
             if ($this->state === self::DONE) {
                 $cc($this->result, $this->ex);
             } else {
-                // 获取结果时未完成, 保存$cc, 开启定时器(如果需要), 挂起等待
+                // 获取结果时未完成，保存$cc，开启定时器(如果需要)，挂起等待
                 $this->cc = $cc;
                 $this->getResultTimeout($timeout);
             }
@@ -199,11 +199,7 @@ final class FutureTask
 }
 ```
 
-因为引入parentTask参数, 需要将父任务隐式传参, 
-
-而我们执行通过Syscall与执行当前生成器的父任务交互,
-
-所以我们重写fork辅助函数, 改用Syscall实现:
+因为引入parentTask参数，需要将父任务隐式传参，而我们执行通过Syscall与执行当前生成器的父任务交互，所以我们重写fork辅助函数，改用Syscall实现：
 
 
 ```php
@@ -223,7 +219,7 @@ function fork($task)
 
 ```
 
-下面看一些关于超时的示例:
+下面看一些关于超时的示例：
 
 
 ```php
@@ -238,7 +234,7 @@ go(function() {
         yield 42;
     }));
 
-    // 阻塞等待超时, 捕获到超时异常
+    // 阻塞等待超时，捕获到超时异常
     try {
         $r = (yield $future->get(100));
         var_dump($r);
@@ -248,7 +244,7 @@ go(function() {
 
     yield delay(1000);
 
-    // 因为我们只等待子任务100ms, 我们的总耗时只有 1100ms
+    // 因为我们只等待子任务100ms，我们的总耗时只有 1100ms
     echo "cost ", microtime(true) - $start, "\n";
 });
 
@@ -264,7 +260,7 @@ go(function() {
 
     yield delay(1000);
 
-    // 子任务500ms前发生异常, 已经处于完成状态
+    // 子任务500ms前发生异常，已经处于完成状态
     // 我们调用get会当即引发异常
     try {
         $r = (yield $future->get());
@@ -273,7 +269,7 @@ go(function() {
         echo "something wrong in child task\n";
     }
 
-    // 因为耗时任务并发执行, 这里总耗时仅1000ms
+    // 因为耗时任务并发执行，这里总耗时仅1000ms
     echo "cost ", microtime(true) - $start, "\n";
 });
 
