@@ -13,7 +13,7 @@ final class AsyncTask implements Async
     public $continuation;
     public $parent;
 
-    // 我们在构造器添加$parent参数, 把父子生成器链接起来, 使其可以进行回溯.
+    // 我们在构造器添加$parent参数, 把父子生成器链接起来， 使其可以进行回溯.
     public function __construct(\Generator $gen, AsyncTask $parent = null)
     {
         $this->gen = new Gen($gen);
@@ -36,7 +36,7 @@ final class AsyncTask implements Async
             }
 
             if ($this->gen->valid()) {
-                // 这里注意优先级, Syscall 可能返回\Generator 或者 Async
+                // 这里注意优先级， Syscall 可能返回\Generator 或者 Async
                 if ($value instanceof Syscall) { // Syscall 签名见下方
                     $value = $value($this);
                 }
@@ -89,7 +89,7 @@ class Syscall
 }
 
 
-// 因为PHP对象属性与数据均为Hashtable实现, 且恰巧生成器对象本身无任何属性,
+// 因为PHP对象属性与数据均为Hashtable实现， 且恰巧生成器对象本身无任何属性，
 // 我们这里把 我们把context kv数据附加到根生成器对象上
 // 最终我们实现的 Context Get与Set函数
 function getCtx($key, $default = null)
