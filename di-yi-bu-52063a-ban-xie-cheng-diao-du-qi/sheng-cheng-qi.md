@@ -1,9 +1,9 @@
-## 生成器
+## 统一生成器接口
 
-统一\Generator接口，由于内部隐式rewind， 需要先调用current() 获取当前value， 而send会直接跳到第二次yield;
+由于内部隐式rewind，需要先调用Generator::current()获取当前value，而直接调用Generator::send()会跳到第二次yield。
 
-1. [send方法说明](http://php.net/manual/en/generator.send.php)
-2. [生成器说明](http://www.laruence.com/2015/05/28/3038.html)
+1. [send方法参考](http://php.net/manual/en/generator.send.php)
+2. [生成器参考](http://www.laruence.com/2015/05/28/3038.html)
 
 
 ```php
