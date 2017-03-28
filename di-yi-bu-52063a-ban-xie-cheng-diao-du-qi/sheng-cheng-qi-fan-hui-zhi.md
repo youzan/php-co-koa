@@ -26,7 +26,10 @@ final class AsyncTask
         }
     }
 }
+```
 
+```php
+<?php
 function newGen()
 {
     $r1 = (yield 1);
