@@ -3,7 +3,7 @@
 * [前言](README.md)
   * [说明](shuo-ming.md)
 * [第一部分: 半协程调度器](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi.md)
-  * [生成器](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi.md)
+  * [统一生成器接口](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi.md)
   * [生成器迭代](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-die-dai.md)
   * [生成器返回值](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-fan-hui-zhi.md)
   * [生成器委托](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-wei-tuo.md)
