@@ -1,8 +1,8 @@
 ## race与timeout
 
-看到这里，你可能已经发现到我们封装的异步接口的问题了: 没有任何超时处理；
+看到这里，你可能已经发现到我们封装的异步接口的问题了: 没有任何超时处理。
 
-通常情况我们需要为每个异步添加定时器，回调成功取消定时器，否则在定时器回调透传异常，例如：
+通常情况我们会为每个异步调用添加定时器，回调成功取消定时器，否则在定时器回调透传异常，例如：
 
 ```php
 <?php
@@ -31,7 +31,10 @@ function timeoutWrapper(callable $fun, $timeout)
         });
     };
 }
+```
 
+```php
+<?php
 // 为callcc添加超时处理
 function callcc(callable $fun, $timeout = 0)
 {
@@ -107,8 +110,10 @@ class Any implements Async
         };
     }
 }
+```
 
-
+```php
+<?php
 // helper function
 function await($task, ...$args)
 {
