@@ -1,6 +1,6 @@
 ## 异常: 重新进行CPS变换
 
-我们把加入异常处理的代码重新修改为CPS方式;
+我们把加入异常处理的代码重新修改为CPS方式：
 
 ```php
 <?php
@@ -48,8 +48,10 @@ final class AsyncTask
         }
     }
 }
+```
 
-
+```php
+<?php
 function tt()
 {
     yield;
@@ -70,9 +72,10 @@ $trace = function($r, $ex) {
     }
 };
 $task->begin($trace);
+```
 
-
-
+```php
+<?php
 function newSubGen()
 {
     yield 0;
