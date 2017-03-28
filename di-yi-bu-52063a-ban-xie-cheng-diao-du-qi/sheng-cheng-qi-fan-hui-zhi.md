@@ -2,7 +2,7 @@
 
 PHP7支持通过[`Generator::getReturn`](http://php.net/manual/en/generator.getreturn.php)获取生成器方法return的返回值。
 
-PHP5中我们约定使用Generator最后一次yield值作为返回值，接受嵌套Generator的返回值同理。
+**PHP5中我们约定使用Generator最后一次yield值作为返回值。**
 
 ```php
 <?php
