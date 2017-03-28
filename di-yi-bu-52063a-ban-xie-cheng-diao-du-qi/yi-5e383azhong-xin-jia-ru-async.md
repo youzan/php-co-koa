@@ -36,7 +36,10 @@ final class AsyncTask implements Async
         }
     }
 }
+```
 
+```php
+<?php
 $trace = function($r, $ex) {
     if ($ex instanceof \Exception) {
         echo "cc_ex:" . $ex->getMessage(), "\n";

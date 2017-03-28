@@ -1,6 +1,6 @@
 ## `Syscall`与`Context`
 
-按照nikic的思路引入与调度器内部交互的Syscall：`Syscall :: AsyncTask $task -> mixed`，将需要执行的函数打包成Syscall，通过yield返回迭代器，可以从Syscall参数获取到当前迭代器对象，这里提供了一个外界与AsyncTask交互的扩展点。
+按照nikic的思路引入与调度器内部交互的`Syscall`，将需要执行的函数打包成`Syscall`，通过yield返回迭代器，可以从`Syscall`参数获取到当前迭代器对象，这里提供了一个外界与AsyncTask交互的扩展点。
 
 我们借此演示如何添加跨生成器上下文，在嵌套生成器共享数据，解耦生成器之间依赖。
 
@@ -13,7 +13,7 @@ final class AsyncTask implements Async
     public $continuation;
     public $parent;
 
-    // 我们在构造器添加$parent参数, 把父子生成器链接起来， 使其可以进行回溯.
+    // 我们在构造器添加$parent参数， 把父子生成器链接起来，使其可以进行回溯
     public function __construct(\Generator $gen, AsyncTask $parent = null)
     {
         $this->gen = new Gen($gen);
@@ -67,11 +67,10 @@ final class AsyncTask implements Async
 }
 ```
 
+Syscall将 (callable :: AsyncTask $task -> mixed) 包装成单独类型：
 
 ```php
 <?php
-
-// Syscall将 (callable :: AsyncTask $task -> mixed) 包装成单独类型
 class Syscall
 {
     private $fun;
@@ -87,11 +86,12 @@ class Syscall
         return $cb($task);
     }
 }
+```
 
+因为PHP对象属性为Hashtable实现，而生成器对象本身无任何属性，我们这里把`Context`的KV数据附加到根生成器对象上，然后得到的Context的Get与Set函数：
 
-// 因为PHP对象属性与数据均为Hashtable实现， 且恰巧生成器对象本身无任何属性，
-// 我们这里把 我们把context kv数据附加到根生成器对象上
-// 最终我们实现的 Context Get与Set函数
+```php
+<?php
 function getCtx($key, $default = null)
 {
     return new Syscall(function(AsyncTask $task) use($key, $default) {
@@ -111,10 +111,10 @@ function setCtx($key, $val)
         $task->gen->generator->$key = $val;
     });
 }
+```
 
-
-
-// Test
+```php
+<?php
 function setTask()
 {
     yield setCtx("foo", "bar");
