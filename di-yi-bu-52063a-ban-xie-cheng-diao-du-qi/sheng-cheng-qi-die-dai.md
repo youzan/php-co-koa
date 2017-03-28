@@ -1,6 +1,9 @@
 ## 生成器迭代
 
-手动迭代生成器，递归执行next，调用send方法将将yield值作为yield表达式结果。(yield表达式可能是一个异步调用，我们之后会把异步调用的结果作为yield表达式结果。)
+手动迭代生成器，递归执行next，调用send方法将将yield值作为yield表达式结果。
+
+1. yield表达式可能是一个异步调用，我们之后会把异步调用的结果作为yield表达式结果。
+2. yield外侧括号在PHP5必须，PHP7不需要
 
 ```
 如, $ip = (yield async_dns_lookup(...)  );
