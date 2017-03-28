@@ -1,6 +1,6 @@
 ## 统一生成器接口
 
-由于内部隐式rewind，需要先调用Generator::current()获取当前value，而直接调用Generator::send()会跳到第二次yield。
+由于内部隐式rewind，需要先调用`Generator::current`获取当前value，而直接调用`Generator::send`会跳到第二次yield。
 
 1. [send方法参考](http://php.net/manual/en/generator.send.php)
 2. [生成器参考](http://www.laruence.com/2015/05/28/3038.html)
