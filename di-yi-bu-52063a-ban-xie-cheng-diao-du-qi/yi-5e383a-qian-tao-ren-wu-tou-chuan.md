@@ -50,7 +50,10 @@ final class AsyncTask
         }
     }
 }
+```
 
+```php
+<?php
 function newSubGen()
 {
     yield 0;
