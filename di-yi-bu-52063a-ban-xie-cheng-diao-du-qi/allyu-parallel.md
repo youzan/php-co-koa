@@ -1,6 +1,6 @@
 ## all与parallel
 
-Any表示多个异步回调，任一回调完成则任务完成，All表示等待所有回调均执行完成， 任务完成，二者相同点是IO部分并发执行;
+Any表示多个异步回调，任一回调完成则任务完成，All表示等待所有回调均执行完成才算任务完成，二者相同点是IO部分并发执行;
 
 ```php
 <?php
@@ -73,8 +73,10 @@ function all(array $tasks)
         }
     });
 }
+```
 
-
+```php
+<?php
 spawn(function() {
     $ex = null;
     try {

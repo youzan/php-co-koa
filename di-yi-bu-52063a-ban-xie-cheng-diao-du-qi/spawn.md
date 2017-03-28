@@ -11,7 +11,7 @@
  * @internal param callable|\Generator|mixed $task
  * @internal param callable $continuation function($r = null, $ex = null) {}
  * @internal param AsyncTask $parent
- * @internal param array $ctx Context可以附加在 \Generator 对象的属性上
+ * @internal param array $ctx Context也可以附加在 \Generator 对象的属性上
  *
  *  第一个参数为task
  *  剩余参数(优先检查callable)

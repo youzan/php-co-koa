@@ -8,4 +8,4 @@
 
 > This allows goroutines to synchronize without explicit locks or condition variables.
 
-相比Golang，我们因为只有一个线程，对于chan发送与接收的阻塞的处理，最终会被转换为对使用chan的协程的控制流的控制。
+相比Golang，我们因为只有一个线程，对于chan发送与接收的阻塞的处理，最终会被转换为对使用channel的协程的控制权的转义。

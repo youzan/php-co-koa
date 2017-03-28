@@ -135,7 +135,7 @@ consumer2 recv from producer 2
 
 ```
 
-chan 自身是first-class, 所以可传递：
+channel 自身是`first-class value`, 所以可传递：
 
 
 ```php
