@@ -7,7 +7,7 @@
   * [生成器迭代](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-die-dai.md)
   * [生成器返回值](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-fan-hui-zhi.md)
   * [生成器委托](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/sheng-cheng-qi-wei-tuo.md)
-  * [return改写](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/returngai-xie.md)
+  * [改写return](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/returngai-xie.md)
   * [抽象异步模型](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/chou-xiang-yi-bu-mo-xing.md)
   * [引入异常处理](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/yin-ru-yi-chang-chu-li.md)
   * [异常: 嵌套任务透传](di-yi-bu-52063a-ban-xie-cheng-diao-du-qi/yi-5e383a-qian-tao-ren-wu-tou-chuan.md)
