@@ -1,11 +1,12 @@
 ## 异常: 重新加入Async
 
-重新加入Async抽象，修改continuation的签名，加入异常参数 `continuation :: (mixed $r， \Exception $ex) -> void`
+重新加入Async抽象，修改continuation的签名，加入异常参数：
 
 ```php
 <?php
 interface Async
 {
+    // continuation :: (mixed $r， \Exception $ex) -> void
     public function begin(callable $continuation);
 }
 
