@@ -6,9 +6,9 @@
 ```php
 <?php
 
-function go()
+function go(...$args)
 {
-    spawn(...func_get_args());
+    spawn(...$args);
 }
 
 function chan($n = 0)
