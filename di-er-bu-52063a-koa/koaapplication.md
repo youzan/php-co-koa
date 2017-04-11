@@ -46,7 +46,7 @@ class Application
     // compose中间件 监听端口提供服务
     public function listen($port = 8000, array $config = [])
     {
-        $this->fn = compose(...$this->middleware);
+        $this->fn = compose($this->middleware);
         $config = ['port' => $port] + $config + $this->defaultConfig();
         $this->httpServer = new \swoole_http_server($config['host'], $config['port'], SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
         $this->httpServer->set($config);
