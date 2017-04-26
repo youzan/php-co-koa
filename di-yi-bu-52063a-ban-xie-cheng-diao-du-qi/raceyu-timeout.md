@@ -60,7 +60,7 @@ spawn(function() {
     try {
         yield async_dns_lookup("www.xxx.com", 1);
     } catch (\Exception $ex) {
-        echo $ex; // ex!
+        echo $ex->getMessage(); // ex!
     }
 });
 
@@ -185,7 +185,7 @@ spawn(function() {
         ]));
         var_dump($res->statusCode);
     } catch (\Exception $ex) {
-        echo $ex;
+        echo $ex->getMessage();
         swoole_event_exit();
     }
 });
@@ -235,7 +235,7 @@ spawn(function() {
         $res = (yield (new HttpClient($ip, 80))->awaitGet("/"));
         var_dump($res->statusCode);
     } catch (\Exception $ex) {
-        echo $ex;
+        echo $ex->getMessage();
         swoole_event_exit();
     }
 });

@@ -98,7 +98,7 @@ array(3) {
 }
 */
     } catch (\Exception $ex) {
-        echo $ex;
+        echo $ex->getMessage();
     }
 });
 ```
