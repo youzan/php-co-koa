@@ -23,8 +23,10 @@ final class AsyncTask
             if ($value instanceof \Generator) {
                 // 父任务next方法是子任务的延续，
                 // 子任务迭代完成后继续完成父任务迭代
-                $continuation = [$this, "next"];
-                (new self($value))->begin($continuation);
+                //PHP7.0语法：[$this,"next"]()等价与$this->next()
+                //7.0以前可能需要使用call_user_func
+                $continuation = [$this, "next"];
+                (new self($value))->begin($continuation);
             } else {
                 $this->next($value);
             }
