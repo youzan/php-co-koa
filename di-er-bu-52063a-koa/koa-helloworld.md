@@ -18,7 +18,7 @@ $app->listen(3000);
 
 ```
 
-我们在Hello中间件前面注册一个Reponse-Time中间件，注意看，我们的逻辑是连贯的：
+我们在Hello中间件前面注册一个Response-Time中间件，注意看，我们的逻辑是连贯的：
 
 ```php
 <?php
