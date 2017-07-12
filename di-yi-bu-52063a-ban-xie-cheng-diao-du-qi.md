@@ -13,7 +13,7 @@ Promise是一套比较完善的方案，但关于如何实现Promise本身超出
 interface Async
 {
     /**
-     * 开启异步任务，完成是执行回调，任务结果或异常通过回调参数传递
+     * 开启异步任务，完成时执行回调，任务结果或异常通过回调参数传递
      * @param callable $callback
      *      continuation :: (mixed $result = null, \Exception|null $ex = null)
      * @return void 
