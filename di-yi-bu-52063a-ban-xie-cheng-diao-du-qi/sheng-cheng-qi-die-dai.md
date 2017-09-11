@@ -17,7 +17,7 @@ yield表达式结果       yield 表达式
 ```php
 <?php
 
-final class AsyncTask
+final class AsyncTask extends Async
 {
     public $gen;
 
